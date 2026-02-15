@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معلقات حب</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg,#ff9eb5,#ffc3d1,#ffe6ee);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 15px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 550px;
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+            line-height: 1.9;
+        }
+
+        /* الرسالة منك */
+        #personalMessage {
+            color: #d91e6a;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* النص */
+        #loveMessage {
+            color: #ff4f7a;
+            font-size: 18px;
+            white-space: pre-line;
+        }
+
+        /* الزر */
+        button {
+            margin-top: 25px;
+            background: #ff4f7a;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+            button:hover {
+                background: #ff2f63;
+                transform: scale(1.05);
+            }
+
+        /* الورود */
+        .flower {
+            position: absolute;
+            top: -50px;
+            font-size: 22px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(200vh) rotate(360deg); /* هيوصل لاخر الصفحة */
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* موبايل */
+        @media(max-width:480px) {
+            body {
+                padding-top: 40px;
+            }
+
+            .container {
+                padding: 25px 18px;
+            }
+
+            #personalMessage, #loveMessage {
+                font-size: 16px;
+            }
+
+            button {
+                width: 100%;
+                padding: 16px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- الرسالة منك -->
+        <div id="personalMessage">
+            إلى نونتي الغالية،
+            كل لحظة معك هي حياة كاملة، وكل يوم بعيد عنك كأنه دهر.
+            هذه الوردة الصغيرة هي البداية، والقصيدة هي قلبي الذي أهديته لكِ بكل الحب.
+            ♥ من Oussama لكِ ♥
+        </div>
+
+        <!-- المعلقات -->
+        <div id="loveMessage">
+            ألا يا سَلامًا على دارِ مَن سَكَنَتْ
+            بها الروحُ حتى تماهى بها البدنُ
+
+            وقفتُ بها والنجومُ الشُّهُبُ ساجدةٌ
+            كأنَّ السما فوقَ أعتابِها تُدْجِنُ
+
+            أنادي، فيرجعُ صوتُ الرياحِ بيَ الحنينُ
+            ويُصغي إلى خفقةِ الأشواقِ مُزْدَمِنُ
+
+            فيا نونتي، والليالي شاهدةٌ
+            بأنكِ في القلبِ سرٌّ ليس يُؤتَمَنُ
+
+            إذا غبتِ أجدبتِ الأيامُ وانطفأتْ
+            مصابيحُ عمري، وضاقَ الفلكُ الوَسَنُ
+
+            وإن أقبلتِ أزهرتْ روحي على عجلٍ
+            كروضٍ سقتهُ من الغيثاتِ مُنْسَكِنُ
+
+            أُحبكِ حبَّ امرئٍ لو قُسِّمَتْ نَفَساتهُ
+            على الخلقِ عاشوا، وما مسّهم حَزَنُ
+
+            أراكِ فترتدُّ أيّامي مُعافاةً
+            ويورقُ الصبرُ بعد اليأسِ يُزْدَهِنُ
+
+            فإن شئتِ كان الزمانُ مطيعَ خاطركِ
+            وإن شئتِ ألقى المنايا وهو مُطمئِنُ
+
+            سأبقى، وإن جارَ دهرٌ أو تبدّلَتْ
+            نجومُ السما، لكِ العهدُ الذي أَدينُ
+        </div>
+
+        <button onclick="showLove()">خُذي وردتي 🌸</button>
+
+    </div>
+
+    <audio id="loveSound" src="love.mp3"></audio>
+
+    <script>
+        function showLove() {
+
+            document.getElementById("loveSound").play();
+
+            for (let i = 0; i < 35; i++) {
+                let flower = document.createElement("div");
+                flower.className = "flower";
+                flower.innerHTML = "🌸";
+                flower.style.left = Math.random() * 100 + "vw";
+                flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+                document.body.appendChild(flower);
+            }
+        }
+    </script>
+
+</body>
+</html>
